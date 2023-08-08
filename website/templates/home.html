@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- ========== Start admin ========== -->
+{% if user.is_authenticated and user.is_superuser and user.is_staff %}
+{% include 'navbar.html' %}
+{% include 'users/admin.html' %}
+
+        <div class="col-md-5 offset-md-3 mt-4">
+            <h1></h1>
+        </div>
+
+<!-- ========== End admin ========== -->
+
+
+<!-- ========== Start staff ========== -->
+
+{% elif user.is_authenticated and user.is_staff %}
+{% include 'navbar.html' %}
+{% include 'users/staff.html' %}
+
+        <div class="col-md-5 offset-md-3 mt-4">
+            <h1></h1>
+        </div>
+
+<!-- ========== End staff ========== -->
+
+
+<!-- ========== Start normal user ========== -->
+
+{% elif user.is_authenticated %}
+{% include 'navbar.html' %}
+{% include 'users/user.html' %}
+
+
+        <div class="col-md-5 offset-md-3 mt-4">
+        <h1></h1>
+        </div>
+
+<!-- ========== End normal user ========== -->
+
+{% else %}
+    <div class="col-md-5 offset-md-3 mt-2 p-3">
+    <h1>Login</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        <br>
+        <div class="mb-3">
+          <label for="" class="form-label"><strong>Username</strong></label>
+          <input type="text"
+            class="form-control" name="username" aria-describedby="helpId" placeholder="Enter your username" required>
+        </div>
+        <div class="mb-3 ">
+          <label for="" class="form-label"><strong>Password</strong></label>
+          <input type="password"
+            class="form-control" name="password" id="" aria-describedby="helpId" placeholder="*************" required>
+        </div>
+
+        <button  type="submit" class="btn btn-secondary offset-md-5">Login</button>
+        
+        <p class="offset-md-0 mt-3"><i> if you don`t have an account click here </i><a href="{% url 'singup' %}">Singup</a> <i> to register</i></p>
+    </form>
+
+    
+</div>
+{% endif %}
+
+{% endblock %}

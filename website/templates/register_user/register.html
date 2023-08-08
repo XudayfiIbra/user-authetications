@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <div class="col-md-6 offset-md-2 p-3">
+        <h1>Singup</h1>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-secondary offset-md-5">Singup</button>
+            <p>I have already an account <a href="{% url 'homePage' %}">Login</a></p>
+        </form>
+    </div>
+
+
+{% endblock content %}
