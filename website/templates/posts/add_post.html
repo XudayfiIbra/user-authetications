@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+
+
+    <div class="col-md-6 offset-md-1">
+       <h1>Add post</h1>
+       <form method="POST" action="" autocomplete="off">
+        {% csrf_token %}
+
+        <br>
+        <div class="mb-3">
+          <label for="" class="form-label">Post title</label>
+          <input type="text"
+            class="form-control" name="post_title" aria-describedby="helpId" placeholder="Example is good" required>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Content</label>
+          <input type="text"
+            class="form-control" name="content" aria-describedby="helpId" placeholder="Content of the Post" required>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Image url</label>
+          <input type="text"
+            class="form-control" name="image" aria-describedby="helpId" placeholder="http://Exsample.jpg" required>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Author</label>
+          <input type="text"
+            class="form-control" name="creater" aria-describedby="helpId" placeholder="Who is Author" required>
+        </div>
+        <button  type="submit" class="btn btn-secondary offset-md-5" >Add post</button>
+    </form>
+    </div>
+
+
+
+{% endblock %}
+

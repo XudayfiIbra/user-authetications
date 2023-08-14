@@ -1,7 +1,90 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 {% include 'navbar.html' %}
 
-<h1>welcome i am post</h1>
+<!-- ========== Start admin ========== -->
+{% if user.is_authenticated and user.is_superuser and user.is_staff %}
+    
+    <div class="container mt-3">
+    <div class="row gy-3">
+        {% for post in Posts %}
+        
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="card">
+                <img src="{{ post.image }}" class="card-img-top">
+                <div class="card-body">         
+                    <h5 class="card-title"></h5>
+                    <h5 href="" class="text-decoration-none link-dark">{{post.post_title}}</h5>
+                    <p class="card-text">{{post.content|truncatewords:5}}</p>
+                    <a href="{% url 'post_reading' %}"><button type="button" class="btn btn-secondary">Read more</button></a>
+                    <a href="#"><button type="button" class="btn btn-primary">Update</button></a>
+                    <a href="{% url 'delete_post' post.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+                    
+                    <p class="mt-3"> <i class="fa fa-clock"></i> {{post.created_date}}</p>
+                </div>
+            </div>
+               
+            </div> 
+             {% endfor %}
+        </div>
+    
+<!-- ========== End admin ========== -->
+
+<!-- ========== Start staff ========== -->
+{% elif user.is_authenticated and user.is_staff %}
+ <div class="container mt-3">
+    <div class="row gy-4">
+        {% for post in Posts %}
+        
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="card">
+                    <a href="#"><img src="{{ post.image }}" class="card-img-top"></a>
+                    <div class="card-body">
+                        
+                        <h5 class="card-title"></h5>
+                        <h5 href="" class="text-decoration-none link-dark">{{post.post_title}}</h5>
+                        <p class="card-text">{{post.content|truncatewords:5}}</p>
+                        <a href="{% url 'post_reading' %}"><button type="button" class="btn btn-secondary">Read more</button></a>
+                        <a href="#"><button type="button" class="btn btn-primary">Update</button></a>
+                        <p class="mt-3"> <i class="fa fa-clock"></i> {{post.created_date}}</p>
+                       
+                        
+                    </div>
+                </div>
+               
+            </div> 
+             {% endfor %}
+        </div>
+<!-- ========== End staff ========== -->
+
+<!-- ========== Start normal user ========== -->
+{% elif user.is_authenticated %}
+ <div class="container mt-3">
+    <div class="row gy-4">
+        {% for post in Posts %}
+        
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="card">
+                    <img src="{{ post.image }}" class="card-img-top">
+                    <div class="card-body">
+                        
+                        <h5 class="card-title"></h5>
+                        <h5 href="" class="text-decoration-none link-dark">{{post.post_title}}</h5>
+                        <p class="card-text">{{post.content|truncatewords:5}}</p>
+                        <a href="{% url 'post_reading' %}"><button type="button" class="btn btn-secondary">Read more</button></a>
+                        <p class="mt-3"> <i class="fa fa-clock"></i> {{post.created_date}}</p>
+                       
+                        
+                    </div>
+                </div>
+               
+            </div> 
+             {% endfor %}
+        </div>
+<!-- ========== End normal user ========== -->
+{% endif %}
+
+
 
 {% endblock %}

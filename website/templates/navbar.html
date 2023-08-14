@@ -9,34 +9,40 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <!--admin navbar-->
             {% if user.is_authenticated and user.is_superuser and user.is_staff %}
-                <div class="navbar-nav offset-md-0">
-                    <a class="nav-link active" aria-current="page" href="{% url 'logout_user' %}">Logout</a>
-                </div>
-                <div class="navbar-nav offset-md-0">
-                    <a class="nav-link active" aria-current="page" href="{% url 'postPage' %}">Posts</a>
-                </div>
+            <div class="navbar-nav offset-md-0">
+                <a class="nav-link active" aria-current="page" href="{% url 'postPage' %}">Posts</a>
+            </div>
+            <div class="navbar-nav offset-md-0">
+                <a class="nav-link active" aria-current="page" href="{% url 'add_post' %}">Add Post</a>
+            </div>
+            <div class="navbar-nav offset-md-0">
+                <a class="nav-link active" aria-current="page" href="{% url 'logout_user' %}">Logout</a>
+            </div>
             <!--end admin navbar--> 
             
 
             <!--staff navbar-->
             {% elif user.is_authenticated and user.is_staff %}
-                <div class="navbar-nav offset-md-0">
-                    <a class="nav-link active" aria-current="page" href="{% url 'logout_user' %}">Logout</a>
-                </div>
-                <div class="navbar-nav offset-md-0">
-                    <a class="nav-link active" aria-current="page" href="{% url 'postPage' %}">Posts</a>
-                </div>
+            <div class="navbar-nav offset-md-0">
+                <a class="nav-link active" aria-current="page" href="{% url 'postPage' %}">Posts</a>
+            </div>
+            <div class="navbar-nav offset-md-0">
+                <a class="nav-link active" aria-current="page" href="{% url 'add_post' %}">Add Post</a>
+            </div>
+            <div class="navbar-nav offset-md-0">
+                <a class="nav-link active" aria-current="page" href="{% url 'logout_user' %}">Logout</a>
+            </div>
             <!--end staff navbar-->
 
 
             <!--normal user navbar-->   
             {% elif user.is_authenticated %}
-                <div class="navbar-nav offset-md-0">
-                    <a class="nav-link active" aria-current="page" href="{% url 'logout_user' %}">Logout</a>
-                </div>
-                <div class="navbar-nav offset-md-0">
-                    <a class="nav-link active" aria-current="page" href="{% url 'postPage' %}">Posts</a>
-                </div>
+            <div class="navbar-nav offset-md-0">
+                <a class="nav-link active" aria-current="page" href="{% url 'postPage' %}">Posts</a>
+            </div>
+            <div class="navbar-nav offset-md-0">
+                <a class="nav-link active" aria-current="page" href="{% url 'logout_user' %}">Logout</a>
+            </div>
             <!--end normal user navbar-->   
             {% endif %}
             </div>

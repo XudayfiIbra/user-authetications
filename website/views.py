@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from . forms import singUpForm
+from . models import Post
+
+
+
 def homePage(request):
     # checking if the use is login
     if request.method == "POST":
@@ -23,8 +27,39 @@ def logout_user(request):
 
 
 def posts(request):
-    return render(request, 'posts/post.html')
+    Posts = Post.objects.all()
+    return render(request, 'posts/post.html', {'Posts':Posts})
+        
+def post_reading(request):
+    # this is function not complate
+    Posts = Post.objects.all()
+    return render(request, 'posts/post_reading.html', {'Posts':Posts})
 
+
+
+def add_post(request):
+    if request.method == 'POST':
+        post_title = request.POST['post_title']
+        content = request.POST['content']
+        image = request.POST['image']
+        creater = request.POST['creater']
+        post_create = Post(post_title=post_title,
+                           content=content, image=image, creater=creater)
+        post_create.save()
+        return redirect('postPage')
+    else:
+        return render(request, 'posts/add_post.html',)
+
+
+def update_post(request):
+    pass
+
+
+
+def delete_post(request, id):
+    post = Post.objects.get(id=id)
+    post.delete()
+    return redirect('postPage')
 
 def user_register(request):
     if request.method == 'POST':
