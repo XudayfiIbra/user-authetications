@@ -17,7 +17,7 @@
                     <h5 class="card-title"></h5>
                     <h5 href="" class="text-decoration-none link-dark">{{post.post_title}}</h5>
                     <p class="card-text">{{post.content|truncatewords:5}}</p>
-                    <a href="{% url 'post_reading' %}"><button type="button" class="btn btn-secondary">Read more</button></a>
+                    <a href="{% url 'post_reading' %}"><button type="button" class="btn btn-secondary">Read</button></a>
                     <a href="#"><button type="button" class="btn btn-primary">Update</button></a>
                     <a href="{% url 'delete_post' post.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
                     

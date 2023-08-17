@@ -4,12 +4,10 @@
 {% include 'navbar.html' %}
 
 
-    <div class="col-md-6 offset-md-1">
+    <div class="col-md-6 offset-md-1 p-3">
        <h1>Add post</h1>
        <form method="POST" action="" autocomplete="off">
         {% csrf_token %}
-
-        <br>
         <div class="mb-3">
           <label for="" class="form-label">Post title</label>
           <input type="text"

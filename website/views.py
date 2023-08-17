@@ -6,7 +6,7 @@ from . models import Post
 
 
 def homePage(request):
-    # checking if the use is login
+    # checking if the user is login
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -39,14 +39,17 @@ def post_reading(request):
 
 def add_post(request):
     if request.method == 'POST':
-        post_title = request.POST['post_title']
-        content = request.POST['content']
-        image = request.POST['image']
-        creater = request.POST['creater']
-        post_create = Post(post_title=post_title,
-                           content=content, image=image, creater=creater)
-        post_create.save()
-        return redirect('postPage')
+        if request.user.is_authenticated:
+            post_title = request.POST['post_title']
+            content = request.POST['content']
+            image = request.POST['image']
+            creater = request.POST['creater']
+            post_create = Post(post_title=post_title,
+                            content=content, image=image, creater=creater)
+            post_create.save()
+            return redirect('postPage')
+        else:
+            return redirect('postPage')
     else:
         return render(request, 'posts/add_post.html',)
 
