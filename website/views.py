@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from . forms import singUpForm
 from . models import Post
@@ -33,7 +33,8 @@ def posts(request):
 def post_reading(request):
     # this is function not complate
     Posts = Post.objects.all()
-    return render(request, 'posts/post_reading.html', {'Posts':Posts})
+    return render(request, 'posts/post_reading.html', {'Posts': Posts})
+    
 
 
 
