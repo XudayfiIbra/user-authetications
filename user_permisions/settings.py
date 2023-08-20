@@ -76,12 +76,14 @@ WSGI_APPLICATION = 'user_permisions.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'user_per',
-        'USER': 'postgres',
-        'PASSWORD': 'xudayfi 11',
-        'HOST': 'localhost',
-        'PORT':'5432'
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'user_per',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'xudayfi 11',
+        # 'HOST': 'localhost',
+        # 'PORT':'5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

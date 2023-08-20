@@ -2,11 +2,19 @@
 {% load static %}
 {% block content %}
 
-{% for post in Posts %}
 
+<img src="{{post.image}}" alt="" width="1200" height="550">
 <h1>{{post.post_title}}</h1>
+<p>{{post.paragraph_one}}</p>
+<p>{{post.paragraph_two}}</p>
+<p>{{post.paragraph_three}}</p>
+<p>{{post.paragraph_four}}</p>
+<p>publish at {{post.created_date}}</p>
+<p>author : {{post.creater}}</p>
 
-{% endfor %}
+
+
+
 
 
 

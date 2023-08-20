@@ -1,0 +1,11 @@
+Todays work
+   ||
+   🤝 ------ Working with post-reading
+   🤝 ------ changin the model of add post to more things like header E.T.C
+   🤝 ------ Trying to change login design
+   ❌ ------ Trying to change singup design
+   ❌ ------ Trying to add Home page
+
+
+
+
