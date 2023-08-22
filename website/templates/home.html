@@ -2,6 +2,13 @@
 {% load static %}
 {% block content %}
 
+<style>
+  .form-control:focus {
+    box-shadow: none;
+  }
+</style>
+
+
 <!-- ========== Start admin ========== -->
 {% if user.is_authenticated and user.is_superuser and user.is_staff %}
 {% include 'navbar.html' %}
@@ -34,9 +41,7 @@
 {% include 'users/user.html' %}
 
 
-        <div class="col-md-5 offset-md-3 mt-4">
-        <h1></h1>
-        </div>
+        
 
 <!-- ========== End normal user ========== -->
 
@@ -60,10 +65,10 @@
                 <form method="POST" action="" autocomplete="off">
                     {% csrf_token %}
                 <div class="input-group mb-3">
-                    <input type="text" name="username" class="form-control form-control-lg bg-light fs-6" placeholder="Username" required>
+                    <input type="text" name="username" class="form-control form-control-lg bg-light fs-6 border-dark border-1" placeholder="Username" required>
                 </div>
                 <div class="input-group mb-1">
-                    <input type="password" name="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" required>
+                    <input type="password" name="password" class="form-control form-control-lg bg-light fs-6 border-dark" placeholder="Password" required>
                 </div>
                 <div class="input-group mb-5 d-flex justify-content-between">
                    <div class="form-check">

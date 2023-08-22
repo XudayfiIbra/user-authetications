@@ -89,3 +89,7 @@ def user_register(request):
 
 
     return render(request, 'register_user/register.html')
+
+
+
+# custome filters

@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+body {
+    background-color: #eee;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px;
+}
+.icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+.badge {
+    padding-left: -20px;
+    box-sizing: border-box;
+}
+.badge span {
+    background-color: black;
+    width: 60px;
+    height: 25px;
+    /*padding-bottom: 3px;
+    padding-top: 3px;*/
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    color: #fffbec;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.badge .span-1{
+    background-color: white;
+    width: 60px;
+    height: 25px;
+    color: white;
+    cursor: pointer;
+
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px;
+}
+
+.progress div {
+    background-color: red;
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.text2 {
+    color: #a5aec0;
+}
+::-webkit-scrollbar {
+    display: none;
+}
