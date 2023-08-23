@@ -4,7 +4,7 @@
 {% include 'navbar.html' %}
 
 
-    <div class="col-md-6 offset-md-1 p-3">
+    {% comment %} <div class="col-md-6 offset-md-1 p-3">
        <h1>Add post</h1>
        <form method="POST" action="" autocomplete="on">
         {% csrf_token %}
@@ -56,7 +56,61 @@
         </div>
         <button  type="submit" class="btn btn-secondary offset-md-5" >Add post</button>
     </form>
+    </div> {% endcomment %}
+
+
+
+
+
+    <!--updated-->
+    <div class="container mt-4">
+    <form action="" method="POST">
+       {% csrf_token %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
+        <div class="col">
+            <label for="" class="form-label">Post title*</label>
+            <input type="text" name="post_title" class="form-control" placeholder="Exsample like this " required> 
+        </div>
+        <div class="col">
+            <label for="" class="form-label">slug*</label>
+            <input type="text" name="slug" class="form-control" placeholder="exsample-like-this" required>
+        </div>
+        <div class="col">
+            <label for="" class="form-label">Heading*</label>
+            <input type="text" name="heading" class="form-control" placeholder="add a Heading" required> 
+        </div>
+        <div class="col">
+            <label for="" class="form-label">Paragraph one*</label>
+            <input type="text" name="paragraph_one" class="form-control" placeholder="paragraph one" required>
+        </div>
+        <div class="col">
+            <label for="" class="form-label">Paragraph two*</label>
+            <input type="text" name="paragraph_two" class="form-control"  placeholder="paragraph one" required>
+        </div>
+        <div class="col">
+            <label for="" class="form-label">Paragraph three*</label>
+            <input type="text" name="paragraph_three" placeholder="paragraph one" class="form-control">
+        </div>
+        <div class="col">
+            <label for="" class="form-label">Paragraph four*</label>
+            <input type="text" name="paragraph_four" placeholder="paragraph one" class="form-control">
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <label for="" class="form-label">Image url*</label>
+                    <input type="text" name="image" class="form-control" placeholder="https://Exsample.jpg" required>
+                </div>
+                <div class="col">
+                    <label for="" class="form-label">Author*</label>
+                    <input type="text" name="creater" class="form-control" placeholder="Who is author" required>
+                </div>
+            </div>
+        </div>
     </div>
+    <button type="submit" class="btn btn-primary w-100 mt-4 ">Add the post</button>
+</form>
+</div> 
 
 
 
