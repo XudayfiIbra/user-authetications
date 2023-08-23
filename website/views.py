@@ -30,10 +30,9 @@ def posts(request):
     posts = Post.objects.all()
     return render(request, 'posts/post.html', {'posts':posts})
         
-def post_reading(request, slug):
-    # this function is not complate
-    post = Post.objects.get(slug=slug)
-    return render(request, 'posts/post_reading.html', {'post': post})
+# def post_reading(request, slug):
+#     post = Post.objects.get(slug=slug)
+#     return render(request, 'posts/post_reading.html', {'post': post})
     
 
 
@@ -61,7 +60,7 @@ def add_post(request):
 
 
 def update_post(request):
-    pass
+    return render(request, 'posts/update-post.html')
 
 
 
