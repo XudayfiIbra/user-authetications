@@ -30,9 +30,9 @@ def posts(request):
     posts = Post.objects.all()
     return render(request, 'posts/post.html', {'posts':posts})
         
-# def post_reading(request, slug):
-#     post = Post.objects.get(slug=slug)
-#     return render(request, 'posts/post_reading.html', {'post': post})
+def post_reading(request, slug):
+    post = Post.objects.get(slug=slug)
+    return render(request, 'posts/post_reading.html', {'post': post})
     
 
 
@@ -42,15 +42,11 @@ def add_post(request):
         if request.user.is_authenticated:
             post_title = request.POST['post_title']
             slug = request.POST['slug']
-            heading = request.POST['heading']
-            paragraph_one = request.POST['paragraph_one']
-            paragraph_two = request.POST['paragraph_two']
-            paragraph_three = request.POST['paragraph_three']
-            paragraph_four = request.POST['paragraph_four']
+            body = request.POST['body']
             image = request.POST['image']
             creater = request.POST['creater']
-            post_create = Post(post_title=post_title, slug=slug,
-                               heading=heading, image=image, creater=creater, paragraph_one=paragraph_one, paragraph_two=paragraph_two, paragraph_three=paragraph_three, paragraph_four=paragraph_four)
+            post_create = Post(post_title=post_title, body=body, slug=slug,
+                                image=image, creater=creater, )
             post_create.save()
             return redirect('postPage')
         else:

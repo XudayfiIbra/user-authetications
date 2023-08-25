@@ -17,7 +17,7 @@
             <div class="icon"><img src="{{ post.image }}" /></div>
             <div class="ms-2 c-details">
               <h6 class="mb-0"><strong>{{post.post_title}}</strong></h6>
-              <span>published {{post.created_date}}</span>
+              <span>published {{post.created_date|timesince}} Ago</span>
             </div>
           </div>
           <div class="badge">
@@ -31,9 +31,9 @@
           </div>
         </div>
         <div class="mt-3">
-          <h3 class="heading">{{post.paragraph_one|truncatewords:5}}</h3>
+          <p class="heading">{{post.body|truncatewords:10|safe}}</p>
           <div class="mt-5">
-            <a href="#"
+            <a href="{% url 'post_reading' post.slug %}"
               ><button class="btn btn-dark w-100">Read more</button></a
             >
           </div>
@@ -99,7 +99,7 @@
             <div class="icon"><img src="{{ post.image }}" /></div>
             <div class="ms-2 c-details">
               <h6 class="mb-0"><strong>{{post.post_title}}</strong></h6>
-              <span>published {{post.created_date}}</span>
+              <span>published {{post.created_date|timesince}} Ago</span>
             </div>
           </div>
           <div class="badge">
@@ -113,9 +113,9 @@
           </div>
         </div>
         <div class="mt-3">
-          <h3 class="heading">{{post.paragraph_one|truncatewords:5}}</h3>
+          <p class="heading">{{post.body|truncatewords:10|safe}}</->
           <div class="mt-5">
-            <a href="#"
+            <a href="{% url 'post_reading' post.slug %}"
               ><button class="btn btn-dark w-100">Read more</button></a
             >
           </div>
@@ -174,14 +174,14 @@
             <div class="icon"><img src="{{ post.image }}" /></div>
             <div class="ms-2 c-details">
               <h6 class="mb-0"><strong>{{post.post_title}}</strong></h6>
-              <span>published {{post.created_date}}</span>
+              <span>published {{post.created_date|timesince}} Ago</span>
             </div>
           </div>
         </div>
         <div class="mt-3">
-          <h3 class="heading">{{post.paragraph_one|truncatewords:5}}</h3>
+          <p class="heading">{{post.body|truncatewords:10|safe}}</p>
           <div class="mt-5">
-            <a href="#"
+            <a href="{% url 'post_reading' post.slug %}"
               ><button class="btn btn-dark w-100">Read more</button></a
             >
           </div>

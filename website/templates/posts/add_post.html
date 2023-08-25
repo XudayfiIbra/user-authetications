@@ -76,41 +76,36 @@
             <input type="text" name="slug" class="form-control" placeholder="exsample-like-this" required>
         </div>
         <div class="col">
-            <label for="" class="form-label">Heading*</label>
-            <input type="text" name="heading" class="form-control" placeholder="add a Heading" required> 
+            <label for="" class="form-label">Author*</label>
+            <input type="text" name="creater" class="form-control" placeholder="Who is author" required>
+        </div>
+         <div class="col">
+            <label for="" class="form-label">Image url*</label>
+            <input type="text" name="image" class="form-control" placeholder="https://Exsample.jpg" required>
+        </div>
         </div>
         <div class="col">
-            <label for="" class="form-label">Paragraph one*</label>
-            <input type="text" name="paragraph_one" class="form-control" placeholder="paragraph one" required>
-        </div>
-        <div class="col">
-            <label for="" class="form-label">Paragraph two*</label>
-            <input type="text" name="paragraph_two" class="form-control"  placeholder="paragraph one" required>
-        </div>
-        <div class="col">
-            <label for="" class="form-label">Paragraph three*</label>
-            <input type="text" name="paragraph_three" placeholder="paragraph one" class="form-control">
-        </div>
-        <div class="col">
-            <label for="" class="form-label">Paragraph four*</label>
-            <input type="text" name="paragraph_four" placeholder="paragraph one" class="form-control">
-        </div>
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <label for="" class="form-label">Image url*</label>
-                    <input type="text" name="image" class="form-control" placeholder="https://Exsample.jpg" required>
-                </div>
-                <div class="col">
-                    <label for="" class="form-label">Author*</label>
-                    <input type="text" name="creater" class="form-control" placeholder="Who is author" required>
-                </div>
-            </div>
-        </div>
-    </div>
+            <label for="" class="form-label">Body*</label>
+            {% comment %} <input type="textarea" name="body" class="form-control" placeholder="add a Heading" required>  {% endcomment %}
+            
+            <textarea class="form-control" name="body" id="editor" cols="30" rows="10">{{form.body.value }}</textarea>
+        </div>        
     <button type="submit" class="btn btn-primary w-100 mt-4 ">Add the post</button>
 </form>
 </div> 
+
+ <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor.create(document.querySelector('#editor'));
+</script>
+
+{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.23.0/ckeditor.js" integrity="sha512-7tXDCaWDbkhXMuB8meqHJJySRtqB4QvPS84FMnnh5vlyRiNsrIne8xwME0RQNrg4f+7CZPOAc7tXNtWgdHdCng==" crossorigin="anonymous">
+
+
+ ClassicEditor.create(document.querySelector('#editor'));
+
+
+</script> {% endcomment %}
 
 
 

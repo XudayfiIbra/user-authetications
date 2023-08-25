@@ -16,44 +16,28 @@
             <input type="text" name="" class="form-control" required>
         </div>
         <div class="col">
-            <label for="" class="form-label">Heading*</label>
-            <input type="text" name="" class="form-control" required> 
-        </div>
-        <div class="col">
-            <label for="" class="form-label">Paragraph one*</label>
+            <label for="" class="form-label">Image url*</label>
             <input type="text" name="" class="form-control" required>
         </div>
         <div class="col">
-            <label for="" class="form-label">Paragraph two*</label>
+            <label for="" class="form-label">Author*</label>
             <input type="text" name="" class="form-control" required>
         </div>
-        <div class="col">
-            <label for="" class="form-label">Paragraph three*</label>
-            <input type="text" name="" class="form-control">
-        </div>
-        <div class="col">
-            <label for="" class="form-label">Paragraph four*</label>
-            <input type="text" name="" class="form-control">
-        </div>
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <label for="" class="form-label">Image url*</label>
-                    <input type="text" name="" class="form-control" required>
-                </div>
-                <div class="col">
-                    <label for="" class="form-label">Author*</label>
-                    <input type="text" name="" class="form-control" required>
-                </div>
-            </div>
-        </div>
+  
     </div>
+    <div class="col">
+            <label for="" class="form-label">Body*</label>
+            <textarea class="form-control name="" id="editor" cols="30" rows="10" required></textarea>
+        </div>
     <button type="submit" class="btn btn-primary w-100 mt-4 ">Update the post</button>
 </form>
 </div> 
 
 
-
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor.create(document.querySelector('#editor'));
+</script>
 
 
 {% endblock %}
