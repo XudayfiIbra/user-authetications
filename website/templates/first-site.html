@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .name-home{
+            font-weight: 900;
+        }
+        .name-desc{
+            font-weight: 900;
+            color: rgb(85, 85, 85);
+        }
+        .greeting{
+            color: rgb(85, 85, 85);
+        }
+        .mrgin-top {
+            margin-top: 6rem;
+        }
+    </style>
+
+<div class="container">
+        <!--navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><strong>Xudayfi</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse offset-6" id="navbarNavDropdown">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">About</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Projects</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="{% url 'homePage' %}">Dashbord</a>
+                    </div>
+        
+                </div>
+            </div>
+        </nav>
+        <!--navbar Ended-->
+       
+
+        <div class="homepage  text-center mb-3 mrgin-top">
+        <p class="mb-0 greeting">Hello, I'm</p>
+        
+        <h1 class="name-home">Hudayfi</h1>
+        <h3 class="name-desc">Full stack developer</h3>
+        <div class="buttons">
+            <button type="button" class="btn btn-outline-dark">Download Cv</button>
+            <button type="button" class="btn btn-dark">Contact info</button>
+        </div>
+        <div class="icons mt-1">
+            <img src="{% static 'images/linkedin.png' %}" alt="" class="img-fluid me-4" width="50px">
+            <img src="{% static 'images/github.png' %}" alt="" class="img-fluid" width="50px">
+        </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+{% endblock content %}

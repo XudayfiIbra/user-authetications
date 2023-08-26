@@ -3,9 +3,43 @@
 {% block content %}
 
 <style>
-  .form-control:focus {
-    box-shadow: none;
-  }
+    .form-control:focus {
+        box-shadow: none;
+    }
+    body{
+        background-color: #ececec;
+    }
+
+    .box-area {
+        width: 930px;
+    }
+    .right-box{
+        padding: 40px 30px 40px 40px ;
+    }
+
+    ::placeholder{
+        font-size: 16px;
+    }
+
+
+
+    @media only screen and (max-width:768px){
+        .box-area {
+            margin: 0 10px;
+        }
+        .left-box {
+            height: 100px;
+        }
+        .right-box {
+            padding: 20px;
+        }
+        .bg_img{
+            width: 100px;
+            padding-top: 15px;
+        }
+    }
+    
+
 </style>
 
 
@@ -68,12 +102,12 @@
                     <input type="text" name="username" class="form-control form-control-lg bg-light fs-6 border-dark border-1" placeholder="Username" required>
                 </div>
                 <div class="input-group mb-1">
-                    <input type="password" name="password" class="form-control form-control-lg bg-light fs-6 border-dark" placeholder="Password" required>
+                    <input type="password" name="password" class="form-control form-control-lg bg-light fs-6 border-dark" placeholder="Password" id="password"required>
                 </div>
                 <div class="input-group mb-5 d-flex justify-content-between">
                    <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="formCheck">
-                    <label for="formCheck" class="form-check-label text-secondary"><small>Remember me</small></label>
+                    <label for="formCheck" class="form-check-label text-secondary"><small>Show password</small></label>
                    </div>
                    <div class="forgot">
                     <a href="#"><small>Forgot Passowrd</small></a>
@@ -96,6 +130,18 @@
     </div>
    </div>
 
+
+   <script>
+
+
+    const password = document.getElementById("password");
+    const check = document.getElementById("formCheck");
+
+    check.onchange = function(e) {
+        password.type = check.checked ? "text" : "password";
+    };
+
+   </script>
 
 {% endif %}
 

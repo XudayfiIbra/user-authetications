@@ -4,6 +4,8 @@ from . forms import singUpForm
 from . models import Post
 
 
+def first_site(request):
+    return render(request, 'first-site.html')
 
 def homePage(request):
     # checking if the user is login
