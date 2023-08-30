@@ -5,29 +5,30 @@
 
 
 <div class="container mt-4">
-    <form action="">
+    <form method="POST" action="">
+    {% csrf_token %}
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
         <div class="col">
             <label for="" class="form-label">Post title*</label>
-            <input type="text" name="" class="form-control" required> 
+            <input type="text" name="post_title" class="form-control" required> 
         </div>
         <div class="col">
             <label for="" class="form-label">slug*</label>
-            <input type="text" name="" class="form-control" required>
+            <input type="text" name="post_slug" class="form-control" required>
         </div>
         <div class="col">
             <label for="" class="form-label">Image url*</label>
-            <input type="text" name="" class="form-control" required>
+            <input type="text" name="post_image" class="form-control" required>
         </div>
         <div class="col">
             <label for="" class="form-label">Author*</label>
-            <input type="text" name="" class="form-control" required>
+            <input type="text" name="post_author" class="form-control" required>
         </div>
   
     </div>
     <div class="col">
             <label for="" class="form-label">Body*</label>
-            <textarea class="form-control name="" id="editor" cols="30" rows="10" required></textarea>
+            <textarea class="form-control name="post_body" id="editor" cols="30" rows="10" required></textarea>
         </div>
     <button type="submit" class="btn btn-primary w-100 mt-4 ">Update the post</button>
 </form>
