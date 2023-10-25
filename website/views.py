@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from . forms import singUpForm
-from . models import Post
+from . models import Post   
 
 
 def first_site(request):
