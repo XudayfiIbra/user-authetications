@@ -1,79 +1,182 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-
-
-
-
-    {% comment %}<div class="col-md-6 offset-md-2 p-3">
-        <h1>Singup</h1>
-         <form method="post" action="" autocomplete="off">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-secondary offset-md-5">Singup</button>
-            <p>I have already an account <a href="{% url 'homePage' %}">Login</a></p>
-        </form> 
-        </div>{% endcomment %}
-        <form method="post">
-  {% csrf_token %}
-  <div class="container-fluid mt-3">
-    <h1 class="offset-md-5 mb-3">Sing up</h1>
-  <div class="row row-cols-sm-1 row-cols-md-">
-    <div class="col-md-6 mb-4">
-      <div class="input-group">
-        <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-user"></i></div>
-        {{ form.username.label_tag }}
-        {{ form.username }}
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="input-group">
-        <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-font"></i></div>
-        {{ form.first_name.label_tag }}
-        {{ form.first_name }}
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="input-group">
-        <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-font"></i></div>
-        {{ form.last_name.label_tag }}
-        {{ form.last_name }}
-      </div>
-    </div>
+        {% comment %} <form method="post">
+          {% csrf_token %}
+          <div class="container mt-3">
+            <h1 class="offset-md-5 mb-3">Sign up</h1>
+            <div class="row">
+              <!-- First row with two inputs, each taking full width -->
+              <div class=" mb-4">
+                <div class="input-group">
+                  <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-user"></i></div>
+                  {{ form.username.label_tag }}
+                  {{ form.username }}
+                </div>
+              </div>
+              <div class=" mb-4">
+                <div class="input-group">
+                  <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-font"></i></div>
+                  {{ form.first_name.label_tag }}
+                  {{ form.first_name }}
+                </div>
+              </div>
+              <!-- Remaining inputs, each taking full width -->
+              <div class=" mb-4">
+                <div class="input-group">
+                  <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-font"></i></div>
+                  {{ form.last_name.label_tag }}
+                  {{ form.last_name }}
+                </div>
+              </div>
+              <div class=" mb-4">
+                <div class="input-group ">
+                  <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-envelope"></i></div>
+                  {{ form.email.label_tag }}
+                  {{ form.email }}
+                </div>
+              </div>
+              <div class=" mb-4">
+                <div class="input-group">
+                  <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-lock"></i></div>
+                  {{ form.password1.label_tag }}
+                  {{ form.password1 }}
+                </div>
+              </div>
+              <div class=" mb-4">
+                <div class="input-group">
+                  <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-lock"></i></div>
+                  {{ form.password2.label_tag }}
+                  {{ form.password2 }}
+                </div>
+              </div>
+            </div>
+        
+            <button type="submit" class="btn btn-primary w-100 mt-4 btn-lg bg-dark text-white">Sign Up</button>
+            <p class="mt-3 offset-md-5">I already have an account <a href="{% url 'homePage' %}">Login</a></p>
+          </div>
+        </form> {% endcomment %}
+        
+      <style>
+        .form-control:focus {
+          box-shadow: none;
+      }
+      body{
+          background-color: #ececec;
+      }
   
+      .box-area {
+          width: 930px;
+      }
+      .right-box{
+          padding: 20px 30px 20px 20px;
+      }
+  
+      ::placeholder{
+          font-size: 16px;
+      }
+  
+  
+  
+      @media only screen and (max-width:768px){
+          .box-area {
+              margin: 0 10px;
+          }
+          .left-box {
+              height: 100px;
+          }
+          .right-box {
+              padding: 20px;
+          }
+          .bg_img{
+              width: 100px;
+              padding-top: 15px;
+          }
+      }
+      </style>
+
+        <div class="container d-flex justify-content-center align-items-center min-vh-100 ">
+          <div class="row border rounded-5 p-3 bg-light shadow box-area" style="border-radius: 10px;">
+              <!--left container-->
+              <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background-color: #103cbe; border-radius: 10px;">
+                  <div class="featured-image mb-3">
+                      <img src="{% static 'images/bg.png' %}" class="img-fluid bg_img" width="390px">
+                      
+                  </div>
+              </div>
+              <!--right container-->
+              <div class="col-md-6 right-box">
+                  <div class="row  align-items-center ">
+                      <div class="header-text mb-2">
+                          <h2>Hi, welcome </h2>
+                          <p>We are happy to join us</p> 
+                      </div>
+                      <form method="POST" action="" autocomplete="off">
+                          {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="input-group mb-1">
+                            {{ form.username.label_tag }}
+                            {{ form.username }}
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="input-group mb-1">
+                            {{ form.first_name.label_tag }}
+                            {{ form.first_name }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="input-group mb-1">
+                            {{ form.last_name.label_tag }}
+                            {{ form.last_name }}
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="input-group mb-1">
+                          {{ form.email.label_tag }}
+                          {{ form.email }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="input-group mb-1">
+                            {{ form.password1.label_tag }}
+                            {{ form.password1 }}
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="input-group mb-1">
+                            {{ form.password2.label_tag }}
+                            {{ form.password2 }}
+                          </div>
+                        </div>
+                      <div>
+                      
+                      <div class="input-group mb-3 mt-4">
+                          <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Singup</button>
+                      </div>
+                  
+                      <div class="input-group mb-3">
+                          <button class="btn btn-lg btn-dark w-100 fs-6"><img src="{% static 'images/google.png' %}" style="width: 20px;" class="me-2"><small>Singup with google</small></button>
+                      </div>
+      
+                      <div class="row">
+                          <small>I have already an account! <a href="{% url 'homePage' %}">Login</a></small>
+                      </div>
+                  </form>
+                  </div>
+              </div>
+          </div>
+         </div>
 
 
-    <div class="col-md-6 mb-4">
-      <div class="input-group ">
-        <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-envelope"></i></div>
-        {{ form.email.label_tag }}
-        {{ form.email }}
-      </div>
-    </div>
-    
 
-
-
-    <div class="col-md-6 mb-4">
-      <div class="input-group">
-        <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-lock"></i></div>
-        {{ form.password1.label_tag }}
-        {{ form.password1 }}
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="input-group">
-        <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-lock"></i></div>
-        {{ form.password2.label_tag }}
-        {{ form.password2 }}
-      </div>
-    </div>
-</div>
-
-  <button type="submit" class="btn btn-primary w-100 mt-4 btn-lg bg-dark text-white">Sign Up</button>
-  <p class="mt-3 offset-md-5">I have already an account <a href="{% url 'homePage' %}">Login</a></p>
-</form>
-    </div>
+         
 
 
 {% endblock content %}

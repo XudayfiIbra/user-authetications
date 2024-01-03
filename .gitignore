@@ -23,9 +23,6 @@ __pycache__
 
 # File-based project format
 *.iws
-
-# IntelliJ
-out/
 # Python # 
 *.py[cod] 
 *$py.class 
@@ -116,3 +113,6 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+.sqlite3
+todo_list.text
