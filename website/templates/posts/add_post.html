@@ -3,66 +3,6 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-
-    {% comment %} <div class="col-md-6 offset-md-1 p-3">
-       <h1>Add post</h1>
-       <form method="POST" action="" autocomplete="on">
-        {% csrf_token %}
-        <div class="mb-3">
-          <label for="" class="form-label">Post title</label>
-          <input type="text"
-            class="form-control" name="post_title" aria-describedby="helpId" placeholder="Example is good" required>
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">slug</label>
-          <input type="text"
-            class="form-control" name="slug" aria-describedby="helpId" placeholder="Example is good" required>
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Heading</label>
-          <input type="text"
-            class="form-control" name="heading" aria-describedby="helpId" placeholder="Content of the Post" required>
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Paragraph one</label>
-          <input type="text"
-            class="form-control" name="paragraph_one" aria-describedby="helpId" placeholder="Content of the Post" required>
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Paragraph two</label>
-          <input type="text"
-            class="form-control" name="paragraph_two" aria-describedby="helpId" placeholder="Content of the Post" required>
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Paragraph three</label>
-          <input type="text"
-            class="form-control" name="paragraph_three" aria-describedby="helpId" placeholder="Content of the Post" >
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Paragraph four</label>
-          <input type="text"
-            class="form-control" name="paragraph_four" aria-describedby="helpId" placeholder="Content of the Post" >
-        </div>
-        
-        <div class="mb-3">
-          <label for="" class="form-label">Image url</label>
-          <input type="text"
-            class="form-control" name="image" aria-describedby="helpId" placeholder="http://Exsample.jpg" required>
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Author</label>
-          <input type="text"
-            class="form-control" name="creater" aria-describedby="helpId" placeholder="Who is Author" required>
-        </div>
-        <button  type="submit" class="btn btn-secondary offset-md-5" >Add post</button>
-    </form>
-    </div> {% endcomment %}
-
-
-
-
-
-    <!--updated-->
     <div class="container mt-4">
     <form action="" method="POST">
        {% csrf_token %}

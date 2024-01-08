@@ -9,7 +9,7 @@ urlpatterns = [
     path('singup/', views.user_register, name="singup"),
     path('post-reading/<slug>', views.post_reading, name="post_reading" ),
     path('add-post/', views.add_post, name="add_post"),
-    path('update-post/', views.update_post, name="update_post"),
+    path('update-post/<int:id>', views.update_post, name="update_post"),
     path('delete-post/<int:id>', views.delete_post, name="delete_post")
 
 ]

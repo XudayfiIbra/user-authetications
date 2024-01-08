@@ -97,21 +97,21 @@
 <!--The card-->
 <div class="container-fluid mt-4 mb-3">
   <div class="row">
-    {% for post in posts %}
+    {% for posts in post %}
     <div class="col-md-6 col-lg-4">
       <div class="card p-3 mb-4">
         <div class="d-flex justify-content-between">
           <div class="d-flex flex-row align-items-center">
-            <div class="icon"><img src="{{ post.image }}" /></div>
+            <div class="icon"><img src="{{ posts.image }}" /></div>
             <div class="ms-2 c-details">
-              <h6 class="mb-0"><strong>{{post.post_title}}</strong></h6>
-              <span>published {{post.created_date|timesince}} Ago</span>
+              <h6 class="mb-0"><strong>{{posts.post_title}}</strong></h6>
+              <span>published {{posts.created_date|timesince}} Ago</span>
             </div>
           </div>
           <div class="badge">
             <span class="span-1">
               <div class="badge">
-                <span data-bs-toggle="modal" data-bs-target="#exampleModal"
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal.{{posts.id}}"
                   >Manage</span
                 >
               </div>
@@ -119,9 +119,9 @@
           </div>
         </div>
         <div class="mt-3">
-          <p class="heading">{{post.body|truncatewords:10|safe}}</p>
+          <p class="heading">{{posts.body|truncatewords:10|safe}}</p>
           <div class="mt-5">
-            <a href="{% url 'post_reading' post.slug %}"
+            <a href="{% url 'post_reading' posts.slug %}"
               ><button class="btn btn-dark w-100">Read more</button></a
             >
           </div>
@@ -132,7 +132,7 @@
     <!--the modal-->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="exampleModal.{{posts.id}}"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -150,17 +150,17 @@
           </div>
 
           <div class="modal-footer">
-            <a href="{% url 'delete_post' post.id %}"
+            <a href="{% url 'delete_post' posts.id %}"
               ><button type="button" class="btn btn-danger">
                 <i class="fa-solid fa-trash-can"></i> Delete
               </button></a
             >
-
-            <a href="{% url 'update_post' %}"
-              ><button type="button" class="btn btn-secondary">
-                <i class="fa-solid fa-pen"></i> Update
-              </button></a
-            >
+            
+            <a href="{% url 'update_post' posts.id %}">
+              <button type="button" class="btn btn-secondary">
+                  <i class="fa-solid fa-pen"></i> Update
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -179,21 +179,21 @@
 <!--the card-->
 <div class="container-fluid mt-4 mb-3">
   <div class="row">
-    {% for post in posts %}
+    {% for posts in post %}
     <div class="col-md-6 col-lg-4">
       <div class="card p-3 mb-4">
         <div class="d-flex justify-content-between">
           <div class="d-flex flex-row align-items-center">
-            <div class="icon"><img src="{{ post.image }}" /></div>
+            <div class="icon"><img src="{{ posts.image }}" /></div>
             <div class="ms-2 c-details">
-              <h6 class="mb-0"><strong>{{post.post_title}}</strong></h6>
-              <span>published {{post.created_date|timesince}} Ago</span>
+              <h6 class="mb-0"><strong>{{posts.post_title}}</strong></h6>
+              <span>published {{posts.created_date|timesince}} Ago</span>
             </div>
           </div>
           <div class="badge">
             <span class="span-1">
               <div class="badge">
-                <span data-bs-toggle="modal" data-bs-target="#exampleModal"
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal.{{posts.id}}"
                   >Manage</span
                 >
               </div>
@@ -201,9 +201,9 @@
           </div>
         </div>
         <div class="mt-3">
-          <p class="heading">{{post.body|truncatewords:10|safe}}</->
+          <p class="heading">{{posts.body|truncatewords:10|safe}}</->
           <div class="mt-5">
-            <a href="{% url 'post_reading' post.slug %}"
+            <a href="{% url 'post_reading' posts.slug %}"
               ><button class="btn btn-dark w-100">Read more</button></a
             >
           </div>
@@ -214,7 +214,7 @@
     <!--the modal-->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="exampleModal.{{posts.id}}"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -232,7 +232,7 @@
           </div>
 
           <div class="modal-footer">
-            <a href="#"
+            <a href=" {% url 'update_post' posts.id %}"
               ><button type="button" class="btn btn-secondary">
                 <i class="fa-solid fa-pen"></i>Update
               </button></a
@@ -254,22 +254,22 @@
 <!--the card-->
 <div class="container-fluid mt-4 mb-3">
   <div class="row">
-    {% for post in posts %}
+    {% for posts in post %}
     <div class="col-md-6 col-lg-4">
       <div class="card p-3 mb-4">
         <div class="d-flex justify-content-between">
           <div class="d-flex flex-row align-items-center">
-            <div class="icon"><img src="{{ post.image }}" /></div>
+            <div class="icon"><img src="{{ posts.image }}" /></div>
             <div class="ms-2 c-details">
-              <h6 class="mb-0"><strong>{{post.post_title}}</strong></h6>
-              <span>published {{post.created_date|timesince}} Ago</span>
+              <h6 class="mb-0"><strong>{{posts.post_title}}</strong></h6>
+              <span>published {{posts.created_date|timesince}} Ago</span>
             </div>
           </div>
         </div>
         <div class="mt-3">
-          <p class="heading">{{post.body|truncatewords:10|safe}}</p>
+          <p class="heading">{{posts.body|truncatewords:10|safe}}</p>
           <div class="mt-5">
-            <a href="{% url 'post_reading' post.slug %}"
+            <a href="{% url 'post_reading' posts.slug %}"
               ><button class="btn btn-dark w-100">Read more</button></a
             >
           </div>

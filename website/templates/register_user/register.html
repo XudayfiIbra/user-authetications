@@ -2,20 +2,20 @@
 {% load static %}
 {% block content %}
 
-        {% comment %} <form method="post">
+         <form method="post">
           {% csrf_token %}
           <div class="container mt-3">
             <h1 class="offset-md-5 mb-3">Sign up</h1>
             <div class="row">
               <!-- First row with two inputs, each taking full width -->
-              <div class=" mb-4">
+              <div class="col-md-6 mb-4">
                 <div class="input-group">
                   <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-user"></i></div>
                   {{ form.username.label_tag }}
                   {{ form.username }}
                 </div>
               </div>
-              <div class=" mb-4">
+              <div class="col-md-6 mb-4">
                 <div class="input-group">
                   <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-font"></i></div>
                   {{ form.first_name.label_tag }}
@@ -23,28 +23,28 @@
                 </div>
               </div>
               <!-- Remaining inputs, each taking full width -->
-              <div class=" mb-4">
+              <div class="col-md-6 mb-4">
                 <div class="input-group">
                   <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-font"></i></div>
                   {{ form.last_name.label_tag }}
                   {{ form.last_name }}
                 </div>
               </div>
-              <div class=" mb-4">
+              <div class="col-md-6 mb-4">
                 <div class="input-group ">
                   <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-envelope"></i></div>
                   {{ form.email.label_tag }}
                   {{ form.email }}
                 </div>
               </div>
-              <div class=" mb-4">
+              <div class="col-md-6 mb-4">
                 <div class="input-group">
                   <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-lock"></i></div>
                   {{ form.password1.label_tag }}
                   {{ form.password1 }}
                 </div>
               </div>
-              <div class=" mb-4">
+              <div class="col-md-6 mb-4">
                 <div class="input-group">
                   <div class="input-group-text bg-dark text-white"><i class="fa-solid fa-lock"></i></div>
                   {{ form.password2.label_tag }}
@@ -56,9 +56,9 @@
             <button type="submit" class="btn btn-primary w-100 mt-4 btn-lg bg-dark text-white">Sign Up</button>
             <p class="mt-3 offset-md-5">I already have an account <a href="{% url 'homePage' %}">Login</a></p>
           </div>
-        </form> {% endcomment %}
+        </form> 
         
-      <style>
+      {% comment %} <style>
         .form-control:focus {
           box-shadow: none;
       }
@@ -172,7 +172,7 @@
                   </div>
               </div>
           </div>
-         </div>
+         </div> {% endcomment %}
 
 
 

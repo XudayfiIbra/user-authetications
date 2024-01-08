@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from . forms import singUpForm
 from . models import Post   
+from django.contrib import messages
 
 
 def first_site(request):
@@ -30,7 +31,7 @@ def logout_user(request):
 
 def posts(request):
     posts = Post.objects.all()
-    return render(request, 'posts/post.html', {'posts':posts})
+    return render(request, 'posts/post.html', {'post':posts})
         
 def post_reading(request, slug):
     post = Post.objects.get(slug=slug)
@@ -57,7 +58,21 @@ def add_post(request):
         return render(request, 'posts/add_post.html',)
 
 
-def update_post(request):
+def update_post(request, id):
+    if request.user.is_authenticated:
+        current_post = get_object_or_404(Post, pk=id)
+        print("this is id is recived", id)
+        if request.method == 'POST':
+            current_post.post_title = request.POST['post_title']
+            current_post.slug = request.POST['post_slug']
+            current_post.body = request.POST['post_body']
+            current_post.image = request.POST['post_image']
+            current_post.creater = request.POST['post_author']
+            
+            current_post.save()
+            return redirect('postPage')
+        else:
+            return render(request, 'posts/update-post.html', {'post': current_post})
     return render(request, 'posts/update-post.html')
 
 
