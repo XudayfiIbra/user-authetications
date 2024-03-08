@@ -19,15 +19,18 @@
             <label for="" class="form-label">Author*</label>
             <input type="text" name="creater" class="form-control" placeholder="Who is author" required>
         </div>
-         <div class="col">
+        <div class="col">
             <label for="" class="form-label">Image url*</label>
             <input type="text" name="image" class="form-control" placeholder="https://Exsample.jpg" required>
+        </div>
+        <div class="col">
+            <label for="" class="form-label">publish*</label>
+            <input type="checkbox" name="post_published" id="post_published_checkbox">
+            <input type="hidden" name="post_published" value="False">
         </div>
         </div>
         <div class="col">
             <label for="" class="form-label">Body*</label>
-            {% comment %} <input type="textarea" name="body" class="form-control" placeholder="add a Heading" required>  {% endcomment %}
-            
             <textarea class="form-control" name="body" id="editor" cols="30" rows="10">{{form.body.value }}</textarea>
         </div>        
     <button type="submit" class="btn btn-primary w-100 mt-4 ">Add the post</button>

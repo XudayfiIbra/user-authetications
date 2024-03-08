@@ -24,6 +24,10 @@
             <label for="" class="form-label">Author*</label>
             <input type="text" name="post_author" value="{{ post.creater }}" class="form-control" required>
         </div>
+        <div class="col">
+            <label for="" class="form-label">publish*</label>
+            <input type="checkbox" name="post_published" {% if post.post_published %}checked{% endif %}>
+        </div>
   
     </div>
     <div class="col">

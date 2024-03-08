@@ -3,7 +3,8 @@ from django.contrib.auth import login, logout, authenticate
 from . forms import singUpForm
 from . models import Post   
 from django.contrib import messages
-
+from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import login_required
 
 def first_site(request):
     return render(request, 'first-site.html')
@@ -28,9 +29,12 @@ def logout_user(request):
     return redirect('homePage')
 
 
-
+@login_required
 def posts(request):
-    posts = Post.objects.all()
+    if request.user.is_superuser:
+        posts = Post.objects.all()
+    else:
+        posts = Post.objects.filter(post_published=True)
     return render(request, 'posts/post.html', {'post':posts})
         
 def post_reading(request, slug):
@@ -48,8 +52,9 @@ def add_post(request):
             body = request.POST['body']
             image = request.POST['image']
             creater = request.POST['creater']
+            post_published = request.POST.get('post_published', False)
             post_create = Post(post_title=post_title, body=body, slug=slug,
-                                image=image, creater=creater, )
+                                image=image, creater=creater, post_published=post_published)
             post_create.save()
             return redirect('postPage')
         else:
@@ -61,13 +66,13 @@ def add_post(request):
 def update_post(request, id):
     if request.user.is_authenticated:
         current_post = get_object_or_404(Post, pk=id)
-        print("this is id is recived", id)
         if request.method == 'POST':
             current_post.post_title = request.POST['post_title']
             current_post.slug = request.POST['post_slug']
             current_post.body = request.POST['post_body']
             current_post.image = request.POST['post_image']
             current_post.creater = request.POST['post_author']
+            current_post.post_published = request.POST.get('post_published', False) == 'on'
             
             current_post.save()
             return redirect('postPage')
