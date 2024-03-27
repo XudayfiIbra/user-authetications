@@ -1,0 +1,1 @@
+web: gunicorn user_permisions.wsgi:application --blind 0.0.0.0:$PORT
